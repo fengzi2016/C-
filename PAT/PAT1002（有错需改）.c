@@ -1,7 +1,9 @@
 #include<stdio.h>
 #include<math.h>
 int main(){
-	int n,x,p,t,j,f;
+	/*错误：无法输入大于long int 的整形，解决办法，使用数组*/
+	int x,t,j,f;
+	 long int n;
 	scanf("%d",&n);
 	x=0;
 	while(n!=0)
@@ -15,7 +17,8 @@ int main(){
    	j++;
    	f/=10;
    }
- 	int a[j];	
+   int a[j];
+     	
  		for(t=j-1;t>=0;t--)
     	{
 	    	a[t]=x%10;
@@ -37,7 +40,9 @@ int main(){
 		case 9:printf("jiu ");break;	
     	}
     	
-    }if(t>=2) printf("\b");
+    }
+	/*错误 */ 
+	if(t>1) printf("\b");
 
     return 0;
 }
