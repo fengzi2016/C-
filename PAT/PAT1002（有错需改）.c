@@ -41,7 +41,7 @@ int main(){
     	}
     	
     }
-	/*´íÎó */ 
+
 	if(t>1) printf("\b");
 
     return 0;
