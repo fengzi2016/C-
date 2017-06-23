@@ -12,13 +12,14 @@ int main(){
 	int jif,youf,t,k,f,g;
 	t=k=f=g=0;
 	scanf("%d%d%d",&n,&jif,&youf);
+  if(n<=100000&&jif>=60&&youf<100){
 	struct Student stu[n];
 	struct Student a[n],b[n],c[n],d[n],temp;
 	for(i=0;i<n;i++){
-		scanf("%s%d%d",stu[i].number,&stu[i].cai,&stu[i].de);
+		scanf("%s%d%d",stu[i].number,&stu[i].de,&stu[i].cai);
 		if(stu[i].cai>=youf&&stu[i].de>=youf)
 			a[k++]=stu[i];
-		else if(stu[i].cai>=youf)
+		else if(stu[i].de>=youf&&stu[i].cai>=jif)
 			b[t++]=stu[i];
 		else if(stu[i].de>=stu[i].cai&&stu[i].de>=jif&&stu[i].cai>=jif)
 			c[f++]=stu[i];
@@ -46,9 +47,12 @@ int main(){
 	for(i=0;i<g;i++){
 		outpurt(d[i]);
 	}
+	return 0;
+ }
+else return 0;
 }
 void outpurt(struct Student x){
-	printf("%s %d %d\n",x.number,x.cai,x.de);
+	printf("%s %d %d\n",x.number,x.de,x.cai);
 }
 void  jiaohuan(struct Student *x,struct Student *y){
 	struct Student temp;
@@ -71,10 +75,11 @@ void paixu(struct Student *a,int n){
 					jiaohuan(a+i,a+j);
 				}
 				else if(a[j].de==a[i].de){
-					if(a[j].number<a[i].number)
+					if(a[j].number>a[i].number)
 						jiaohuan(a+i,a+j);
 				}
 			}
 		}
 	}
-}
+  }
+  
