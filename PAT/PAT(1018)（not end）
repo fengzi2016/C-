@@ -1,0 +1,87 @@
+#include<stdio.h>
+int main(){
+	int N,t,m;
+	char ch[4];
+	char a,b;
+	void cp(int x,int y,int z);
+	int counta_C,counta_B,counta_J,
+	countb_C,countb_J,countb_B,
+	wina,winb,ping;
+	counta_C=counta_B=counta_J=
+	countb_C=countb_J=countb_B=
+	wina=winb=ping=0;
+	scanf("%d",&N);
+	t=N;m=N+1;
+	while(m--){
+ 		gets(ch);
+ 		a=ch[0];
+ 		b=ch[2];
+		if(a=='C'){	
+			if(b=='J'){
+				wina++;
+				counta_C++;
+			}
+			if(b=='C'){
+				ping++;
+			}
+			if(b=='B'){
+				winb++;
+				countb_B++;
+			}
+		}
+		else if(a=='B'){
+    		if(b=='J'){
+				winb++;
+				countb_J++;
+			}
+			if(b=='C'){
+				wina++;
+				counta_B++;
+			}
+			if(b=='B'){
+				ping++;
+			}
+		}
+		else if(a=='J'){
+			 if(b=='J'){
+				ping++;
+			}
+			if(b=='C'){
+				winb++;
+				countb_C++;
+			}
+			if(b=='B'){
+				wina++;
+				counta_J++;
+			}
+		}
+		
+	}
+	printf("%d %d %d\n",wina,ping,t-wina-ping);
+	printf("%d %d %d\n",winb,ping,t-winb-ping);	
+    cp(counta_J,counta_C,counta_B);
+    cp(countb_J,countb_C,countb_B);
+	printf("\b");		
+	return 0;
+}
+void cp(int x,int y,int z){
+	int max;
+	if(x>y){
+		max=x;
+		if(z>max)printf("B ");
+		else if(z==max)printf("B ");
+		else printf("J ");
+	}
+	else if(x<y){
+		max=y;
+		if(z>max)printf("B ");
+		else if(z==max)printf("B ");
+		else printf("C ");	 
+	}
+	else{
+		 if(z>x)printf("B ");
+		 else if(z==x)printf("B ");
+		 else printf(" C"); 
+	}
+		
+} 
