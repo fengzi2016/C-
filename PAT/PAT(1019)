@@ -1,0 +1,61 @@
+#include<stdio.h>
+int main(){
+	void fengjie(int *a,int n);
+	void paixu1(int *a);
+	int N,i,k,flag;
+	flag=1;
+	scanf("%d",&N);
+	int a[4],b[4],c[4],d[4];
+	fengjie(b,N);
+	if(b[0]==b[1]==b[2]==b[3])
+		printf("%d - %d = 0000",N,N);
+	else{
+		int sum1,sum2;
+		while(flag){
+			sum1=sum2=0;
+			paixu1(b);
+			for(i=0;i<4;i++){
+				a[i]=b[i];
+				printf("%d",a[i]);
+			}
+			printf(" - ");	
+			for(i=3,k=0;i>=0&&k<4;i--,k++){
+				c[k]= b[i];
+				printf("%d",c[k]);
+			}
+			printf(" = ");	
+			sum1=a[0]*1000+a[1]*100+a[2]*10+a[3];
+			sum2=c[0]*1000+c[1]*100+c[2]*10+c[3];
+			N=sum1-sum2;
+			fengjie(b,N);
+			for(i=0;i<4;i++)
+				printf("%d",b[i]);
+			printf("\n");
+			if(b[0]==6&&b[1]==1&&b[2]==7&&b[3]==4)
+				flag=0;	
+			else if(b[0]==b[1]==b[2]==b[3]){
+				flag=0;
+			}
+		}
+	}
+	return 0;
+}
+void fengjie(int *a,int n){
+	int i;
+	for(i=3;i>=0;i--){
+		*(a+i)=n%10;
+		n/=10;
+	}
+}
+void paixu1(int *a){
+	int i,j,temp;
+	for(i=0;i<3;i++){
+		for(j=i+1;j<4;j++){
+			if(*(a+i)<*(a+j)){
+				temp=*(a+i);
+				*(a+i)=*(a+j);
+				*(a+j)=temp;
+			}
+		}
+	}
+}

@@ -1,0 +1,67 @@
+#include<stdio.h>
+struct Biaodang{
+	double dangjia;
+	int zongliang;
+};
+int main(){
+	int n,i,j,sum,s1,s2,s;
+	int a[2],kucun[n],xiaoliang[n];
+	double danjia[n];
+	sum=s1=s2=s=0;
+	void dan(int *p,int *q,int n,double *r);
+	void input(int *p,int n);
+	void  paixu(struct Biaodang *p,int n);
+	scanf("%d",&n);
+	int b[n],c[n];
+	struct Biaodang f[n];
+	input(a,2);
+	input(b,n);
+	input(c,n);
+	dan(b,c,n,danjia);
+	for(i=0;i<n;i++){
+		f[i].dangjia=danjia[i];
+		f[i].zongliang=b[i];
+	}	
+	void paixu(f,n);
+	for(i=0;i<n;i++){
+		if(a[1]<f[0].zongliang){
+			printf("%.2f",f[0].dangjia*a[1]);
+			break;
+		}
+		else {
+			sum=sum+f[i].zongliang;
+			if(sum>=a[1]){
+				for(j=0;j<i;j++){
+					s=s+f[j].dangjia*f[j].zongliang;
+					s1=f[j].zongliang+s1;
+				}
+				s2=a[1]-s1;
+				s=s+s2*f[i].dangjia;
+			}
+		}
+	}		
+}
+void input(int *p,int n){
+	int i;
+	for(i=0;i<n;i++)
+		scanf("%d",p+i);
+}
+void dan(int *p,int *q,int n,double *r){
+	int i;
+	for(i=0;i<n;i++){
+		*(r+i)=*(p+i)/(*(q+i));	
+	}
+}
+void paixu(struct Biaodang *p,int n){
+	int i,j;
+	struct Biaodang temp;
+	for(i=0;i<n-1;i++){
+		for(j=i+1;j<n;j++){
+			if((*(p+i)).dangjia<(*(p+j)).dangjia){
+				temp=*(p+i);
+				*(p+i)=*(p+j);
+				*(p+j)=temp;
+			}
+		}
+	}
+}
