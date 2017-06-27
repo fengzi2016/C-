@@ -1,0 +1,36 @@
+#include<stdio.h>
+int main(){
+	int fengjie(int x,int y);
+	int A,B,C,D,E;
+	scanf("%d%d%d",&A,&B,&D);
+	C=A+B;
+	switch (D){
+		case 2: printf("%d",fengjie(C,D));break;
+		case 3: printf("%d",fengjie(C,D));break;
+		case 4: printf("%d",fengjie(C,D));break;
+		case 5: printf("%d",fengjie(C,D));break;
+		case 6: printf("%d",fengjie(C,D));break;
+		case 7: printf("%d",fengjie(C,D));break;
+		case 8: printf("%d",fengjie(C,D));break;
+		case 9: printf("%d",fengjie(C,D));break;
+		case 10: printf("%d",fengjie(C,D));break;
+		default:break;
+	}	
+}
+int fengjie(int x,int y){
+	int sum=0,shang=1;
+	double k=0.1;
+	while(shang>=0){
+		shang=x/y;
+		if(shang!=0){
+				sum=x%y*10*k+sum;
+				x=shang;
+		}
+		else if(shang==0){
+			sum=sum+x*k*10;
+			break;
+		}
+		k=k*10;	
+	}
+	return sum;
+}
