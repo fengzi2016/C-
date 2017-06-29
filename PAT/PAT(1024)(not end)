@@ -1,0 +1,61 @@
+#include<stdio.h>
+int main(){
+	int i=0;
+	int sum=0;
+	int j,k;
+	char ch;
+	char a[9999]={'0'};
+	while((ch=getchar())!='\n'){
+		scanf("%c",&a[i]);
+		i++;
+	}
+	printf("%d",i);
+	for(j=0;j<i;j++){
+		if(a[j]=='E'){
+				k=j;
+				break;
+		printf("%d",k);
+		}	
+	}
+	for(j=k+2;j<i;j++){
+		sum=sum*10+(a[j]-'0');
+	}
+	if(a[0]=='+'){
+		if(a[k+1]=='-'){
+			printf("0.");
+			for(j=0;j<sum-1;j++)
+				printf("0");
+			for(j=1;j<k;j++)
+				printf("%c",a[j]);
+		}
+		else if(a[k+1]=='+'){
+			for(j=1;j<k;j++){
+				printf("%c",a[j]);
+			}
+			for(j=0;j<sum-1;j++){
+				printf("0");
+			}
+		
+		}
+	}
+	else if(a[0]=='-'){
+		if(a[k+1]=='-'){
+			printf("-");
+			printf("0.");
+			for(j=0;j<sum-1;j++)
+				printf("0");
+			for(j=1;j<k;j++)
+				printf("%c",a[j]);
+		}
+		else if(a[k+1]=='+'){
+			printf("-");
+			for(j=1;j<k;j++){
+				printf("%c",a[j]);
+			}
+			for(j=0;j<sum-1;j++){
+				printf("0");
+			}
+		} 
+	}
+	return 0;
+}
