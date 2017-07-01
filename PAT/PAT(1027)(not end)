@@ -1,0 +1,39 @@
+#include<stdio.h>
+int main(){
+	int n,i,j,sum,sum2,yushu,m,s,k,h;
+	sum=0;sum2=0;
+	char ch,kong;
+	scanf("%d",&n);
+	scanf("%c",&kong);
+	scanf("%c",&ch);
+	for(i=0;i<=1000;i++){
+		j=2*i+1;
+		sum=sum+j;
+		if(sum>n)break;
+	}
+	for(k=0;k<i-1;k++){
+		j=2*k+1;
+		sum2=sum2+j;
+	}
+	sum2=sum2*2-1;
+	yushu=n-sum2;
+	for(m=0;m<i-1;m++){
+		for(h=0;h<m;h++){
+			printf(" ");
+		} 
+		for(s=2*(i-1-m)-1;s>0;s--){
+			printf("%c",ch);
+		}
+		printf("\n");
+	}
+	for(m=1;m<i-1;m++){
+		for(h=i-1-m-1;h>0;h--){
+			printf(" ");
+		} 
+		for(s=2*m+1;s>0;s--)
+			printf("%c",ch);
+			printf("\n");
+	}
+	printf("%d",yushu);
+	
+}

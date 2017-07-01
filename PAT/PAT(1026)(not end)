@@ -1,0 +1,31 @@
+#include<stdio.h>
+int main(){
+	int flag=0;
+	float sum;
+	int C3,C2,C1,h,m,s;
+	int CLK_TCK=100;
+	scanf("%d%d",&C1,&C2);
+	C3=C2-C1;
+	sum=1.0*C3/CLK_TCK;
+	h=sum/3600;
+	m=(sum-3600*h)/60;
+	if((sum-(int)sum)>0){
+		s=sum-h*3600-m*60+1;
+		if(s>59){
+			flag=1;
+			m++;
+			if(m>59){
+				flag=2;
+				h++;
+			}	
+		}	
+	}
+	else s=sum-h*3600-m*60;
+	if(flag==0)
+		printf("%d:%d:%d",h,m,s);	 
+	else if(flag==1)
+		printf("%d:%d:00",h,m);
+	else if(flag==2)
+		printf("%d:00:00",h);
+	return 0;
+}
