@@ -1,0 +1,27 @@
+#include<stdio.h>
+int main(){
+	int result,temp;
+	int N,p,i,j;
+	scanf("%d%d",&N,&p);
+	int a[N];
+	int*q;int*x;
+	for(q=a;q<a+N;q++){
+		scanf("%d",q);
+	}
+	for(q=a;q<N+a-1;q++){
+		for(x=q+1;x<N+a;x++){
+			if(*q<*x){
+				temp=*q;
+				*q=*x;
+		    	*x=temp;
+			}
+		}
+	}
+	for(q=N+a-1;q>=a;q--){
+		if(a[0]<=p*(*q))
+		break;
+	}
+	result=q-a+1;
+	printf("%d",result);
+	return 0;
+} 
