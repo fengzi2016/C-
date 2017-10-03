@@ -11,8 +11,8 @@
 </Folder>
 <Folder name="Other Files">
 </Folder>
-<Attribute topline="7" x="44" y="12">..\..\DATASTRUCTURE\Chapter_02_List\sourcecode\LinkListTest.cpp</Attribute>
-<Attribute topline="4" x="2" y="24">..\..\DATASTRUCTURE\Chapter_02_List\sourcecode\LinkList.h</Attribute>
+<Attribute topline="19" x="1" y="27">..\..\DATASTRUCTURE\Chapter_02_List\sourcecode\LinkListTest.cpp</Attribute>
+<Attribute topline="1" x="2" y="14">..\..\DATASTRUCTURE\Chapter_02_List\sourcecode\LinkList.h</Attribute>
 <FolderState>111</FolderState>
 <DefConfig>mingw5</DefConfig>
 <Builder name="mingw5" type="MinGW" version="1.0">
