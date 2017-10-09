@@ -1,0 +1,9 @@
+<Projects version="2.0">
+	<Project active="1">queue.cfp</Project>
+	<File active="0">..\..\DATASTRUCTURE\Chapter_04_Queue\sourcecode\LinkQueueTest.cpp</File>
+	<File active="0">..\..\DATASTRUCTURE\Chapter_04_Queue\sourcecode\LinkList.h</File>
+	<File active="0">..\..\DATASTRUCTURE\Chapter_03_Stack\sourcecode\LinkStack.h</File>
+	<File active="0">..\..\DATASTRUCTURE\Chapter_03_Stack\sourcecode\LinkStackTest.cpp</File>
+	<File active="1">..\..\DATASTRUCTURE\Chapter_04_Queue\sourcecode\LinkQueue.h</File>
+	<File active="0">..\..\DATASTRUCTURE\Chapter_02_List\sourcecode\LinkList.h</File>
+</Projects>

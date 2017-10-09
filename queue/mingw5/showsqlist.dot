@@ -1,0 +1,27 @@
+digraph
+{
+node [shape = box];
+box0 [label = "6"];
+box1 [label = "8"];
+box1 -> box0;
+box2 [label = "16"];
+box2 -> box1;
+box3 [label = "2"];
+box3 -> box2;
+box4 [label = "34"];
+box4 -> box3;
+box5 [label = "56"];
+box5 -> box4;
+box6 [label = "7"];
+box6 -> box5;
+box7 [label = "10"];
+box7 -> box6;
+box8 [label = "22"];
+box8 -> box7;
+box9 [label = "45"];
+box9 -> box8;
+box10 [label = "62"];
+box10 -> box9;
+box11 [label = "88"];
+box11 -> box10;
+}
