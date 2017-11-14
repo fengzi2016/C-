@@ -1,0 +1,55 @@
+#include<iostream>
+#include<stdio.h>
+using namespace std;
+typedef struct{
+    int address;
+    int data;
+    int next;
+}LinkNode;
+int main(){
+    int firstaddress,number,limitnum;
+    cin>>firstaddress>>number>>limitnum;
+    LinkNode arr[number];
+    int i,temp;
+    int j=0,k=0;
+    int address,data,next;
+    for(i=0;i<number;i++){
+        cin>>address>>data>>next;
+        if(data<0){
+            j++;
+            temp=i;
+            while(temp--)
+                  arr[temp+j]=arr[temp];
+            arr[j].data=data;
+            arr[j].next=next;
+            arr[j].address=address;
+        }else if(data<limitnum){
+            k++;
+          arr[j+k].data=data;
+          arr[j+k].next=next;
+          arr[j+k].address=address;
+        }else{
+         arr[i].data=data;
+          arr[i].next=next;
+          arr[i].address=address;
+        }
+    }
+    cout<<'========================'<<endl;
+    for(i=0;i<number;i++){
+        if(i!=number-1)
+            cout<<arr[i].address<<' '<<arr[i].data<<' '<<arr[i].address<<'\n';
+        else
+        cout<<arr[i].address<<' '<<arr[i].data<<' '<<-1;
+    // for(i=0;i<number;i++){
+    //     if(i!=number-1)
+    //         cout<<arr[i].address<<' '<<arr[i].data<<' '<<arr[i+1].address<<'\n';
+    //     else
+    //     cout<<arr[i].address<<' '<<arr[i].data<<' '<<-1;
+    
+
+}
+
+
+
+
+}
