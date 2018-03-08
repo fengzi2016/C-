@@ -1,57 +1,76 @@
-#include <stdio.h> 
-#include <iostream.h>
-#include <math.h>
-#include <string.h>
+
 #include <iostream>
+#include <string>
 #include <fstream>
-#include <sstream>
+#include <ctype.h>
 using namespace std; 
 int main(){
-	char a[1000];
-	string compresscode(string a);
-	string decode(string a);
-    char order;
-    cin>>order;
-    gets(a);
-    if(order=='C'){
-    	decode(a);
-    }else if(order == 'D'){
+	void compresscode(string a);
+	void decode(string a);
+    string order;
+    getline(cin,order);
+    string str;
+	getline(cin,str);
+    if(order[0]=='C'){
+    	decode(str);
+    	
+    }else if(order[0] == 'D'){
+    	compresscode(str);
     	
     	
-    	
-    }
+   }
 }
-string decode(char a[]){
+void decode(string a){
 	
 	
 	int i,j;
 	string fina = "";
-	int count=1,black_count = 1;
-	for(i=0;a[i]!='/0';i++){
-		for(j=i+1;a[j]!='/0';j++){
-			if(a[i]==a[j]&&a[i]!=' '){
+	int count=1;
+
+	for(i=0;i<a.length();i++){
+		for(j=i+1;j<a.length()+1;j++){
+			if(a[i]==a[j]){
 				count++;
-			}else if(a[i]==a[j]&&a[i]==' '){
-				black_count++;
 			}
 			if(a[i]!=a[j]&&count!=1){
 		        cout<<count<<a[i];
 				break;
+			}else if(a[i]!=a[j]&&count==1){
+					cout<<a[i];
+					 break;
 			}
-		 	if(a[i]!=a[j]&&black_count!=1){
-		 		cout<<a[i];
-				 break;
-			}
-			cout<<i;
 		}
-	i = j;
-	j = i+1;
+	i = j-1;
 	count=1;
-	black_count=1;
+
 	}
-	return fina;
-	
+
 }
-string compresscode(string a){
-	
+void compresscode(string a){
+	int i,j,t,k;
+	int temp,kill,keepInt;
+	for(i=0;i<a.length();){
+			k=1;
+			temp=0;
+			kill=1;
+			if(isdigit(a[i])){
+				j=i+1;
+				while(isdigit(a[j])){
+					k++;
+					j++;
+				}
+				for(t=0;t<k;t++){
+					keepInt = a[j-t-1]-'0';
+					temp += keepInt*kill;
+					kill *=10;
+				}
+				for(t=0;t<temp;t++){
+					cout<< a[j];
+				}
+					i=i+k+1;
+			}else{
+				cout<<a[i];
+				i++;
+			}	
+	}
 }
