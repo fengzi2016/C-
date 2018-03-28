@@ -6,6 +6,10 @@
 # include <iostream>
 using namespace std;
 //list=>{01:[1,2,3]} 
+
+
+
+ 
 map<int ,vector<int> > list;
 int record[101]={0};
 void DFS(int id,int level){
