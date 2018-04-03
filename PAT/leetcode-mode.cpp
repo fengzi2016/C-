@@ -1,41 +1,69 @@
 #include<iostream>
 #include<algorithm>
 #include<vector.h>
-
+#include <string> 
+using namespace std;
 int main(){
-	int singleNumber(vector<int>& nums);
-	 vector<int> intersect(vector<int>& nums1, vector<int>& nums2) ;
-	int n[] = {1,1,2,2,3,3,5} ;
-	vector<int> a(n,n+7);
-	cout<<singleNumber(a);
+	string s = "hello";
+	
+	/*int singleNumber(vector<int>& nums);
+    //vector<int> intersect2(vector<int>& nums1, vector<int>& nums2) ;
+    vector<int> intersect(vector<int>& nums1, vector<int>& nums2) ;
+	int n[] = {9,1}; 
+	int te[] = {7,8,3,9,0,0,9,1,5};
+	vector<int> b(n,n+2) ;
+	vector<int> a(te,te+9);
+	int i;
+	vector<int> result  = intersect(a,b);
+	for(i=0;i<result.size();i++)
+		cout<<result[i];*/
 }
+/*vector<int> intersect(vector<int>& nums1, vector<int>& nums2){
+	int i,j;
+	vector<int> result;
+	if(nums1.size()==0||nums2.size()==0){
+           return result;
+       }
+	for(i=0;i<nums1.size();i++){
+		for(j=0;j<nums2.size();j++){
+			if(nums1[i]==nums2[j]){
+                // b.erase(b.begin())
+				result.push_back(nums1[i]);
+                
+			}
+		}
+	}
+	return result;
+} 
 
-
-   vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
-        vector<int> result[0];
+ /*  vector<int> intersect2(vector<int>& nums1, vector<int>& nums2) {
+        vector<int> result ;  
+        if(nums1.size()==0||nums2.size()==0){
+           return result;
+       }
         sort(nums1.begin(),nums1.end());
         sort(nums2.begin(),nums2.end());
         if(nums1[0]>nums2[nums2.size()-1])
             return result;
-        if(nums1[nums.size()-1]<nums2[0])
+       if(nums1[nums1.size()-1]<nums2[0])
             return result;
         int i,j=0,k=0;
-        int minlen ;
-        minlen = nums1.size()>nums2.size() ? nums2.size():nums1.size();
-        for(i=0;i<minlen;){
+        for(i=0;i<nums1.size(),j<nums2.size();){
           if(nums1[i]>nums2[j]){
-              i++;
+              j++;
           }else if(nums1[i]<nums2[j]){
-              j++;
+              i++;
           }else{
-              result[k++]=nums1[i];
+              result.push_back(nums1[i]);
+              k++;
               i++;
               j++;
+              
           }
     }
         return result;
 }
-       
+  */     
        
  int singleNumber(vector<int>& nums) {
         int i;
