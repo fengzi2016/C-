@@ -84,3 +84,60 @@ vector<int> intersect(vector<int>& nums1, vector<int>& nums2){
         }
         
     } 
+  // 加一
+  vector<int> plusOne(vector<int>& digits) {
+      int len = digits.size();
+      int i,j;
+      int yushu,shang = 0;
+      digits[len-1]+=1;
+      for(i = len-1;i >= 0; i--){
+      	digits[i]+= shang;
+      	shang = digits[i]/10;
+      	if(shang == 0) return digits;
+      	else{
+	       yushu = digits[i]%10;
+	      	digits[i] = yushu;
+	      }  
+      }
+      
+      if(i == -1){
+      	
+      	 vector<int> a(len+1);
+      	 a[0] = 1;
+      	 for(j = 0; j<len ; j++){
+      	 
+ 	      	a[j+1] = digits[j];
+ 	      }
+ 	      return a;
+      }
+    } 
+//移动零
+ void moveZeroes(vector<int>& nums) {
+	int i,j,count=0;
+	int len = nums.size(); 
+	for(i=0;i<len-count;i++){
+		if(nums[i]==0){
+			for(j=i;j<len-1;j++){
+				nums[j] = nums[j+1];
+			}
+			nums[len-1] = 0;
+			count++;
+			i--;
+		}
+	}
+  } 
+ //相加
+ vector<int> twoSum(vector<int>& nums, int target) {
+        vector<int> a(2);
+        int i,j,k;
+        int len = nums.size();
+        for(j=0;j<len-1;j++){
+            for(k=j+1;k<=len-1;k++){
+                if(nums[j]+nums[k]==target) {
+                    a[0]=j;
+                    a[1]=k;
+                    return a;
+                }
+            }
+        }
+    } 
