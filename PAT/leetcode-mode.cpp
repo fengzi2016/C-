@@ -7,7 +7,8 @@ int main(){
 	int i;
 	int te[] = {7,8,3,9,0,0,9,1,5};
 	vector<int> a(te,te+9);
-	vector<int> twoSum(vector<int>& nums, int target);
+	bool isValidSudoku(vector<vector<char>>& board);
+	//vector<int> twoSum(vector<int>& nums, int target);
 	vector<int> result  = twoSum(a,6);
 	for(i=0;i<result.size();i++)
 		cout<<result[i];
@@ -23,7 +24,10 @@ int main(){
 	for(i=0;i<result.size();i++)
 		cout<<result[i];*/
 }
-vector<int> twoSum(vector<int>& nums, int target) {
+
+
+
+/* vector<int> twoSum(vector<int>& nums, int target) {
         vector<int> a(2);
         int i,j,k;
         int len = nums.size();
@@ -138,3 +142,22 @@ void moveZeroes(vector<int>& nums) {
         }
         
  }*/ 
+ bool isValidSudoku(vector<vector<char>>& board) {
+        int rows[][] = new int[9][9];
+        int cols[][] = new int[9][9];
+        int boxs[][] = new int[9][9];
+        int i,j;
+        for(i=0;i<board.size();i++){
+        	for(j=0;j<board[i].size();j++){
+	        	if(board[i][j] != '.'){
+	        		int num = board[i][j]-'0'-1;
+	        		int k = i/3*3+j/3;
+	        		if(rows[i][num]==1||cols[j][num]==1||boxs[k][num]==1)
+	       				return false;
+	        		}
+	        		 rows[i][num] = cols[j][num] = boxs[k][num] = 1;
+	        }
+        }
+		return true;
+        
+ }

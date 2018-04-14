@@ -141,3 +141,23 @@ vector<int> intersect(vector<int>& nums1, vector<int>& nums2){
             }
         }
     } 
+ //有效数独
+  bool isValidSudoku(vector<vector<char>>& board) {
+        int i,j,k;
+        int rows[][] = new int[9][9];
+        int cols[][] = new int[9][9];
+        int boxs[][] = new int[9][9];
+        for(i=0;i<board.size();i++){
+        	for(j==0;j<board.size[i].size();j++){
+       			if(board[i][j] != '.'){
+	        	int num = board[i][j]-'0'-1;
+	        	int k = i/3*3+j/3;
+		        	if(rows[i][num]==1||cols[j][num]==1||boxs[k][num]==1){
+		        		return false;
+		        	}
+       			}
+	        	rows[i][num]=cols[j][num]=box[k][num]=1;
+	        }
+        }
+        return true;
+  }
