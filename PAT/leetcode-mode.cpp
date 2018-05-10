@@ -2,16 +2,21 @@
 #include<algorithm>
 #include<vector.h>
 #include <string> 
+#include <Math.h>
 using namespace std;
 int main(){
+	//string reverseString(string s);
+	int reverse(int x);
+    int a = 1534236463;
+    int r = reverse(a); 
 	int i;
-	int te[] = {7,8,3,9,0,0,9,1,5};
+/*	int te[] = {7,8,3,9,0,0,9,1,5};
 	vector<int> a(te,te+9);
 	bool isValidSudoku(vector<vector<char>>& board);
 	//vector<int> twoSum(vector<int>& nums, int target);
-	vector<int> result  = twoSum(a,6);
-	for(i=0;i<result.size();i++)
-		cout<<result[i];
+	vector<int> result  = twoSum(a,6);*/ 
+//	for(i=0;i<r.length();i++)
+		cout<<r;
 	/*int singleNumber(vector<int>& nums);
     //vector<int> intersect2(vector<int>& nums1, vector<int>& nums2) ;
     vector<int> intersect(vector<int>& nums1, vector<int>& nums2) ;
@@ -24,9 +29,31 @@ int main(){
 	for(i=0;i<result.size();i++)
 		cout<<result[i];*/
 }
-
-
-
+int reverse(int x) {
+	int n = 1;
+	int y = x;
+	while(y>=10 || y<=-10){
+		n *= 10;
+		y /= 10;
+	}
+        if(x/10!=0){
+        
+        	return reverse(x/10)+(x%10)*n;
+        }else{
+        
+        	return x;
+        }
+     
+}
+ /*string reverseString(string s) {
+        int length = s.length();
+        int i,j;
+        string result = "";
+        for(i=length-1;i>=0;i--){
+            result += s[i];
+        }
+        return result;
+    }
 /* vector<int> twoSum(vector<int>& nums, int target) {
         vector<int> a(2);
         int i,j,k;
@@ -142,7 +169,7 @@ void moveZeroes(vector<int>& nums) {
         }
         
  }*/ 
- bool isValidSudoku(vector<vector<char>>& board) {
+ /*bool isValidSudoku(vector<vector<char>>& board) {
         int rows[][] = new int[9][9];
         int cols[][] = new int[9][9];
         int boxs[][] = new int[9][9];
@@ -160,4 +187,4 @@ void moveZeroes(vector<int>& nums) {
         }
 		return true;
         
- }
+ }*/
