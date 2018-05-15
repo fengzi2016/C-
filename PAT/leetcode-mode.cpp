@@ -34,9 +34,10 @@ int main(){
  int firstUniqChar(string s) {
  	int i,j;
  	int length = s.length();
-  	for(i=0;i<length-1;i++){
-	  	for(j=i+1;j<length;j++){
-	  		if(s[i]==s[j]){
+ 	if(length == 1)return 0; 
+  	for(i=0;i<length;i++){
+	  	for(j=0;j<length;j++){
+	  		if(s[i]==s[j] && i!= j){
 		  		break;
 		  	}
 	  	}

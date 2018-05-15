@@ -1,0 +1,74 @@
+/*# include <iostream>
+# include <algorithm>
+using namespace std;
+
+int main() {
+    int i,j,k;
+    int n,m,c;
+    cin>>n>>m>>c;
+    int d = c+1;
+    int s = n+1;
+    int a[s][d];
+    int temp;
+    for( i = 0 ;i < n; i++) {
+        cin>>a[i][0];
+        if(a[i][0] != 0) {
+             for( j = 1 ;j < d; j++) {
+                 cin>>temp;
+                 if(temp==j) {
+                     a[i][j] = temp;
+                 } else {
+                     a[i][j] = 0;
+                 }
+            }
+        } 
+    }
+    for( j=0;j<d;j++) {
+    	
+        a[s-1][j] = a[0][j];
+        
+    } 
+    for(i)
+    int count = 0;
+	k = 0;
+    for(j = 1; j< d; j ++) {
+        for(i = 0; i< s ; i++)  {
+            if(a[i][j] == j) {
+                k++;
+            }
+            if(k>=c) {
+                count++;
+                break;
+            }
+        }
+    }
+    
+    cout<<count;
+ 
+}*/
+# include <iostream>
+# include <algorithm>
+# include <string>
+using namespace std;
+int main() {
+    string p;
+    cin>>p;
+    int n;
+    cin>>n;
+    int i,j,k;
+    int pos,len;
+    string temp,re;
+    for(i = 0;i < n;i++) {
+        cin>>pos;
+        cin>>len;
+        temp = p.substr(pos,len);
+        k = 0;
+        for(j = len-1 ;j>=0;j--) {
+            re[k++] = temp[j];
+        }
+       cout<< p.substr(pos+len-1)<<endl;
+       p = p.substr(0,pos)+re+p.substr(pos+len-1);
+    }
+    cout<<p;
+    return 0;
+}
