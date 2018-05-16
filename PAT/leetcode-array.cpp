@@ -161,3 +161,107 @@ vector<int> intersect(vector<int>& nums1, vector<int>& nums2){
         }
         return true;
   }
+  // 验证二叉搜索树
+  /**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+
+      int min(TreeNode* root) {
+        while(root->left) {
+            root = root->left;
+        }
+        return root->val;
+    }
+    int max(TreeNode* root) {
+        while(root->right){
+            root = root -> right;
+        }
+        return root->val;
+    }
+    bool isValidBST(TreeNode* root) {
+       
+        bool left = true;
+        bool right = true;
+        if(root) {
+            int val = root->val;
+            if(root -> left){
+                left = isValidBST(root->left) && (val>max(root->left));
+            } 
+            if(root -> right) {
+               right = isValidBST(root->right)&&(val<min(root->right));
+             }
+        if (!root->left && !root->right) {
+                return true;
+        }
+        return left&&right;
+     }
+     return true;
+    }
+  
+}; 
+//二叉树：验证对偶二叉树 
+ bool isSymmetric(TreeNode* root) {
+        if(!root){
+            return true;
+        }
+        return symmetric(root->left,root->right);
+    }
+  
+    symmetric(TreeNode* a,TreeNode* b) {
+        if(!a&&!b)return true;
+        else if(!a||!b)return false;
+        else if(a && b) {
+            return (a->val == b->val)&&symmetric(a->left,b->right)&&symmetric(a->right,b->left);
+        }
+        
+    } 
+    
+    
+    // 大数相加
+	# include<iostream>
+# include <string>
+using namespace std;
+int main() {
+	string a,b;
+	cin>>a;
+	cin>>b;
+	int i,j,lena,lenb,maxlen;
+	lena=a.length();
+	lenb=b.length();
+	vector<char> ca[lena],cb[lenb];
+	int k=0,t=0;
+	for(i=lena-1;i>=0;i--){
+		ca[k++]=a[i];
+	} 
+	for(i=lenb-1;i>=0;i--){
+		cb[t++]=b[i];
+	} 
+	maxlen = lena>lenb?lena:lenb;
+	int overnum = 0;
+	int sum;
+	int w ;
+	int result[maxlen];
+	for(i=0;i<maxlen;i++) {
+		sum = overnum;
+		if(a[i]){
+			sum += a[i]; 
+		}
+		if(b[i]){
+			sum += b[i];
+		}
+		int s = sum%10;
+		result[maxlen-1-w] = s;
+		w++;
+		overnum = sum / 10;
+		
+	}
+	 for(i=0;i<maxlen;i++) {
+ 		cout<<result[i];
+ 	}
+} 
