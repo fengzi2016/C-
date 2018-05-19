@@ -265,3 +265,27 @@ int main() {
  		cout<<result[i];
  	}
 } 
+// 数串
+# include <iostream>
+# include <string>
+# include <algorithm>
+# include <vector>
+using namespace std;
+
+int main() {
+    int n;
+    cin>>n;
+    int i,j;
+    vector<string> strArr;
+    string temp;
+    for(i=0;i<n;i++) {
+        cin>>temp;
+        strArr.push_back(temp);
+    }
+    sort(strArr.begin(),strArr.end(), [](string s1, string s2){
+        return (s1+s2) > (s2+s1);
+    });
+    for(i = 0;i < strArr.size();i++) {
+        cout<<strArr[i];
+    }
+}
