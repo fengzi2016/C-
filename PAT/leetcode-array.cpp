@@ -289,3 +289,74 @@ int main() {
         cout<<strArr[i];
     }
 }
+
+
+//动态规划
+
+//1.爬楼梯
+  int climbStairs(int n) {
+        if(n==0 || n==1 || n==2) {
+            return n;
+        }
+        int r[n+1];
+        int i;
+        r[1] = 1;  
+        r[2] = 2;  
+        for(i=3;i<n+1;i++){
+            r[i] = r[i-1] + r[i-2];
+        }
+        return r[i-1];
+    }
+//买卖股票的最佳时机
+int maxProfit(vector<int>& prices) {
+        if(prices.size()==0) return 0;
+        int i,j;
+        int max = 0;
+        for(i = 0; i < prices.size()-1;i++) {
+            for(j = i + 1;j < prices.size();j++) {
+                int c = prices[j] - prices[i];
+                if(max<c) max = c;
+            }
+        }
+        return max;
+        
+    }
+};
+// 最大子序和
+public:
+    int maxSubArray(vector<int>& nums) {
+        return fengzhifa(0,nums.size()-1,nums);
+        
+    }
+private:
+    int fengzhifa(int start, int end, vector<int>& nums) {
+        if(start == end) {
+                return nums[start];
+        }
+        int center = (start+end)/2;
+        int i,maxLeft,maxRight,leftSum,rightSum;
+        
+        //递归
+        maxLeft = fengzhifa(start,center,nums);
+        maxRight = fengzhifa(center+1,end,nums);
+        leftSum = rightSum = 0;
+        int maxl,maxr;
+        maxl = nums[center], maxr = nums[center+1];
+        for(i=center;i>=start;i--){
+            leftSum += nums[i];
+            if(leftSum > maxl) {
+                maxl = leftSum;
+            }
+        }
+        
+        for(i = center+1; i <= end; i++) {
+            rightSum += nums[i];
+            if(rightSum > maxr) {
+                maxr = rightSum;
+            }
+        }
+        int sum = maxl + maxr; //最大子串跨域中值
+        int maxe = max(maxLeft,maxRight); //最大值子串在某一边
+        if(sum > maxe ) return sum;
+        else return maxe;
+    }
