@@ -7,18 +7,18 @@ using namespace std;
 int main(){
 	//string reverseString(string s);
 	//int reverse(int x);
-	int firstUniqChar(string s);
-    string s = "loveleetcode";
-    
-    int r = firstUniqChar(s);
-	int i;
+	 int myarray[5] = {2,7,9,3,1};  
+     vector<int> myvector(myarray , myarray+5);  
+   	 int rob (vector<int> &nums); 
+     int maxV = rob(myvector);
+     
 /*	int te[] = {7,8,3,9,0,0,9,1,5};
 	vector<int> a(te,te+9);
 	bool isValidSudoku(vector<vector<char>>& board);
 	//vector<int> twoSum(vector<int>& nums, int target);
 	vector<int> result  = twoSum(a,6);*/ 
 //	for(i=0;i<r.length();i++)
-		cout<<r;
+	//	cout<<r;
 	/*int singleNumber(vector<int>& nums);
     //vector<int> intersect2(vector<int>& nums1, vector<int>& nums2) ;
     vector<int> intersect(vector<int>& nums1, vector<int>& nums2) ;
@@ -31,7 +31,7 @@ int main(){
 	for(i=0;i<result.size();i++)
 		cout<<result[i];*/
 }
- int firstUniqChar(string s) {
+ /*int firstUniqChar(string s) {
  	int i,j;
  	int length = s.length();
  	if(length == 1)return 0; 
@@ -46,7 +46,7 @@ int main(){
 	  	}
 	  }
 	  return -1;
- }
+ }*/ 
 /*int reverse(int x) {
 	int result = 0;
 	while(x!=0){
@@ -206,3 +206,22 @@ void moveZeroes(vector<int>& nums) {
 		return true;
         
  }*/
+ 
+ int rob(vector<int>& nums) {
+	int n = nums.size();
+ 	if(n==0) {
+	 	return 0;
+	 }
+	 if( n == 1 ){
+ 		return nums[0];
+ 	}
+   
+ 	int i;
+ 	int maxV[n];
+ 	maxV[0] = nums[0];
+ 	maxV[1] = max(nums[1],nums[0]);
+ 	for(i = 2;i < n; i++) {
+ 	   maxV[i] = max(maxV[i-2]+nums[i],maxV[i-1]);
+	 }
+	 return maxV[n-1];
+    }
