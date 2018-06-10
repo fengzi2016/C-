@@ -11,9 +11,11 @@ int main(){
      vector<int> myvector(myarray , myarray+5);  
    	 int rob (vector<int> &nums); 
      int maxV = rob(myvector);*/
-    bool isPalindrome(string s);
+    /*bool isPalindrome(string s);
     string a = "`l;`` 1o1 ??;l`";
-    cout<<isPalindrome(a);
+    cout<<isPalindrome(a);*/
+	int myAtoi(string str);
+	cout<<myAtoi("42");
      
 /*	int te[] = {7,8,3,9,0,0,9,1,5};
 	vector<int> a(te,te+9);
@@ -34,6 +36,47 @@ int main(){
 	for(i=0;i<result.size();i++)
 		cout<<result[i];*/
 }
+int myAtoi(string str) {
+        int flag = 0;
+        string strr = "";
+        int i;
+        for(i=0;i<str.length();i++) {
+            if(str[i] < '0' || str[i] > '9') {
+                if( str[i] != ' ' ||  str[i] == '-'  && flag == 1 && strr == "" ){
+                    break;
+                }else if(str[i] == '-' && flag == 0) {
+                    strr += str[i];
+                    flag = 1 ;
+                }
+            }
+            else  {
+               strr += str[i];
+            }
+        
+    }
+    string maxv = "2147483647";
+    string minv = "-2147483648";
+    cout<<strr<<endl;
+    for(i=0;i<strr.length();i++) {
+		 	
+    	cout<<strr[i]-'0';
+    }
+  /*  if(flag == 0) {
+        if(strr.length() >= maxv.length()&& strr> maxv) {
+            return 2147483647;
+        } 
+    } else {
+        if(strr.length() >= minv.length() && strr > minv) {
+            return -2147483648;
+        } 
+    } 
+    for(i=0;i<strr.length();i++) {
+		 	
+    	cout<<strr[i]-'0';
+    }*/
+    
+}
+                   
  /*int firstUniqChar(string s) {
  	int i,j;
  	int length = s.length();
@@ -229,7 +272,7 @@ void moveZeroes(vector<int>& nums) {
 	 return maxV[n-1];
     }*/ 
     
-    
+   /* 
      char toLowerWord(char a) {
          if(a>='A' && a<='Z') {
              a += 32;
@@ -252,5 +295,5 @@ void moveZeroes(vector<int>& nums) {
         }
         return true;
     }
-
+*/ 
     
