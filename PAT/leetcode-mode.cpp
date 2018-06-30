@@ -5,6 +5,10 @@
 #include <Math.h>
 using namespace std;
 int main(){
+	 string trim(string str);
+	 bool fu(string str);
+	 bool shuzhi(char a);
+	 int num(string s);
 	//string reverseString(string s);
 	//int reverse(int x);
 	 /*int myarray[5] = {2,7,9,3,1};  
@@ -15,7 +19,7 @@ int main(){
     string a = "`l;`` 1o1 ??;l`";
     cout<<isPalindrome(a);*/
 	int myAtoi(string str);
-	cout<<myAtoi("42");
+	cout<<myAtoi( "2147483646");
      
 /*	int te[] = {7,8,3,9,0,0,9,1,5};
 	vector<int> a(te,te+9);
@@ -36,46 +40,120 @@ int main(){
 	for(i=0;i<result.size();i++)
 		cout<<result[i];*/
 }
-int myAtoi(string str) {
-        int flag = 0;
-        string strr = "";
+  bool shuzhi(char a) {
+        if(a >= '0' && a<='9') {
+            return true;
+        }
+        return false;
+    }
+int num(string s) {
         int i;
-        for(i=0;i<str.length();i++) {
-            if(str[i] < '0' || str[i] > '9') {
-                if( str[i] != ' ' ||  str[i] == '-'  && flag == 1 && strr == "" ){
-                    break;
-                }else if(str[i] == '-' && flag == 0) {
-                    strr += str[i];
-                    flag = 1 ;
-                }
-            }
-            else  {
-               strr += str[i];
-            }
+        int sum = 0;
+        int k = 1;
         
+        for(i = s.length()-1 ;i>=0;i--) {
+            int temp = s[i]-'0';
+            sum += k*temp;
+            k *= 10;
+        }
+        return sum;
     }
-    string maxv = "2147483647";
-    string minv = "-2147483648";
-    cout<<strr<<endl;
-    for(i=0;i<strr.length();i++) {
-		 	
-    	cout<<strr[i]-'0';
+    string trim(string str) {
+        int i ;
+        int flag = 0;
+        string pure = "";
+        for(i=0;i<str.length();i++) {
+        	if(flag == 0) {
+	        	if(str[i]!=' ') {	
+	            	flag = 1;
+	            	i--;
+	            }
+	        }else {
+        		pure += str[i];
+        	} 
+        }
+        
+        return pure;
     }
-  /*  if(flag == 0) {
-        if(strr.length() >= maxv.length()&& strr> maxv) {
-            return 2147483647;
-        } 
-    } else {
-        if(strr.length() >= minv.length() && strr > minv) {
-            return -2147483648;
-        } 
-    } 
-    for(i=0;i<strr.length();i++) {
-		 	
-    	cout<<strr[i]-'0';
-    }*/
+    string nozero(string str) {
+    	int i;
+        if(str[0]=='+' || str[0]=='-') i=1;
+    	 else  i = 0;
+    	string pure ="";
+    	int flag = 0;
+   	     
+   	    if(str[0]=='-') pure += '-'; 
+    	for(i;i<str.length();i++) {
+	    	if(flag == 0) {
+	    		if(str[i]!='0'){
+	    			if(shuzhi(str[i])) {
+			    			flag = 1;
+		    				i--;
+			    	}
+			    	else {
+	    				return pure;
+	    			}
+		    	
+		    	}
+	    	} else {
+	    		pure += str[i];
+	    	}
+	    }
+	   
+	    return pure;
+
+    }
+    int fu(string str) {
+        if(str[0] == '-') {
+            return -1;
+        } else if(str[0]== '+'){
+            return 1;
+        }else {
+        	return 0;
+        }
+    }
+  
     
-}
+int myAtoi(string str) {
+        string noblank = trim(str);
+        noblank = nozero(noblank);
+        int iffu = fu(noblank);
+        string result = "";
+        int i;
+        if(iffu == -1 || iffu == 1) i = 1;
+        else i = 0;
+        
+            for(i;i<str.length();i++) {
+                if(shuzhi(noblank[i])){
+                    result += noblank[i];
+                }else{
+                
+                    break;
+                }
+             }
+        
+        string maxv = "2147483647";
+        string minv = "-2147483648"; 
+	
+        if(result.length()!=0) {
+          if(iffu == -1) {
+          	  
+              if(result.length()>10 || (result > "2147483648" && result.length() == 10)) return -2147483648;
+              else return -num(result);
+            
+          }else {
+              if(result.length()>10 || (result > "2147483647" && result.length() == 10) ) return 2147483647;
+              else return num(result);
+          }
+         }  else {
+            return 0;
+        }
+  
+    }
+
+
+                   
+
                    
  /*int firstUniqChar(string s) {
  	int i,j;
