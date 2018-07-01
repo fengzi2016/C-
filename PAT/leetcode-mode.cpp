@@ -5,7 +5,9 @@
 #include <Math.h>
 using namespace std;
 int main(){
-	 string trim(string str);
+	int strStr(string haystack, string needle);
+	cout<<strStr("hello","ll");
+	/* string trim(string str);
 	 bool fu(string str);
 	 bool shuzhi(char a);
 	 int num(string s);
@@ -18,7 +20,7 @@ int main(){
     /*bool isPalindrome(string s);
     string a = "`l;`` 1o1 ??;l`";
     cout<<isPalindrome(a);*/
-	int myAtoi(string str);
+	/*int myAtoi(string str);
 	cout<<myAtoi( "2147483646");
      
 /*	int te[] = {7,8,3,9,0,0,9,1,5};
@@ -40,7 +42,28 @@ int main(){
 	for(i=0;i<result.size();i++)
 		cout<<result[i];*/
 }
-  bool shuzhi(char a) {
+int strStr(string haystack, string needle) {
+        if (needle.length()==0) return 0;
+		int hlen = haystack.length();
+		int nlen = needle.length();
+		int i,j,k;
+		for(i=0;i<hlen;i++) {
+			if(haystack[i]==needle[0]) {
+				k = i;
+				for(j=0;j<nlen;j++) {
+					if(haystack[k++]!=needle[j]) {
+						break;
+					}
+				}
+				if(j==nlen) return k-j;
+			
+			}
+		
+			
+		}
+		return -1;
+}
+  /*bool shuzhi(char a) {
         if(a >= '0' && a<='9') {
             return true;
         }
