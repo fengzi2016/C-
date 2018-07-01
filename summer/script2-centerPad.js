@@ -18,3 +18,27 @@ const centerPad = (str, len, pad) => {
 centerPad('Hello', 13, 'abc') // => 'abcaHelloabca'
 centerPad('Gook Luck!', 30, '*~') // => '*~*~*~*~*~Gook Luck!*~*~*~*~*~'
 centerPad('gH', 7, 'mKFVIFj')
+
+function isPrime(number) {
+    if(number<2) return false;
+    for(let i = 2 ; i < number; i++) {
+        if(number%2==0) return false;
+    }
+    return true;
+}
+isPrime = new Proxy(isPrime,{
+    apply:(target,thisArg,args) => {
+        console.log('target:'+target);
+        console.log('Arg:'+thisArg);
+        console.log('args:'+args);
+        console.time("isPrime");
+        const result = target.apply(thisArg,args);
+        console.timeEnd("isPrime");
+        return true;
+    }
+})
+ isPrime(1299827);
+
+ let a = '2';
+ a = +a;
+ console.log(typeof a);
