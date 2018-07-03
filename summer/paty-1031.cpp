@@ -1,4 +1,5 @@
-﻿#include<iostream>
+﻿//部分正确，有一个点没解决 
+#include<iostream>
 #include<algorithm>
 #include<vector.h>
 #include <string> 
