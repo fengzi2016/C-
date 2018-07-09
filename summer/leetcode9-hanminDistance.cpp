@@ -7,7 +7,7 @@ using namespace std;
 int main() {
 	  int x = 1;
 	  int y = 2;
-	  int s = x|y;
+	  int s = x^y;
       int c = 0;
         for(;s;s>>=1) {
             c+=s&1;
