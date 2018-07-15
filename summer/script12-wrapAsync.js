@@ -1,6 +1,6 @@
 const wrapAsync =  (generatorFn) => (...arg) => {
     let generator =  generatorFn(...arg);
-    function reciver() {
+    function reciever() {
         
     }
     return new Promise((resolve,reject) => {
