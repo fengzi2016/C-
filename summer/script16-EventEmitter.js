@@ -19,14 +19,21 @@ class EventEmitter {
         }
     }
     off(eventName,func) {
-        if(!this.events[eventName]) {
-            return false;
-        } else {
-            this.events[eventName] = this.events[eventName].filter((f)=>{
-                return f!==func;
-            })
-          
+        for(let i in this.events) {
+            if(this.events[i]) {
+                this.events[i] = this.events[i].filter((f)=>{
+                    return func!==f;
+                })
+            }
         }
+        // if(!this.events[eventName]) {
+        //     return false;
+        // } else {
+        //     this.events[eventName] = this.events[eventName].filter((f)=>{
+        //         return f!==func;
+        //     })
+          
+        // }
     }
 }
 const emitter = new EventEmitter()

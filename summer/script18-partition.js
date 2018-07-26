@@ -1,5 +1,5 @@
 const partition = (arr) => {
-const swap = (a,i,j) => {
+    const swap = (a,i,j) => {
         return [a[i],a[j]] = [a[j],a[i]];
     }
     const first = arr[0];
