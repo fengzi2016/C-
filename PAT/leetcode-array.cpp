@@ -1,4 +1,4 @@
-//从排序数组中删除重复项
+*//从排序数组中删除重复项
 #include <vector>
 int removeDuplicates(vector<int>& nums) {
         int i = 0;
