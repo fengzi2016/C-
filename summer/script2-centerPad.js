@@ -15,6 +15,8 @@ const centerPad = (str, len, pad) => {
     str = str.padEnd(len,pad);
     return str;
 }
+centerPad('Hell',13,'abc') //=> abcaHellabcab
+console.log(centerPad('Hello',12,'abc')) // => abcHelloabca
 centerPad('Hello', 13, 'abc') // => 'abcaHelloabca'
 centerPad('Gook Luck!', 30, '*~') // => '*~*~*~*~*~Gook Luck!*~*~*~*~*~'
 centerPad('gH', 7, 'mKFVIFj')
