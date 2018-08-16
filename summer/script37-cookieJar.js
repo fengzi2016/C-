@@ -9,6 +9,8 @@ const cookieJar = {
     get (name) {
         let cookie  = document.cookie;
         let Reg =  new RegExp(`${name}=([^;]+)`);
+        let result = Reg.exec(cookie);
+        return result[1];
         // let result =  
         
         // let value = undefined;
@@ -24,9 +26,7 @@ const cookieJar = {
         // })
     },
     remove (name) {
-      return result = document.cookies.filter((cookie)=>{
-           cookie.name!==name;
-       }) 
+      document.cookie = `${name}=outdate;expires=${new Date()}`
     }
   }
   
