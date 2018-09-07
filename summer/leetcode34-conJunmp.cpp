@@ -13,20 +13,15 @@ int main() {
 	
 }
   bool canJump(vector<int>& nums) {
-        
-        int end = nums.size()-1;
-        if(nums.size()==0||end==0) return true;
-        int start = 0;
-        int cur = 0;
-        int next = 0;
-        while(next < end) {
-        	 if(nums[cur]==0)break;
-             next = nums[cur] + cur;
-             cur = next;
-             cout<<cur<<endl;
+        int size = nums.size(),i=0,cur=0;
+        while(cur<size-1) {
+            int pre = cur;
+            for(;i<=pre;i++) {
+                cur = max(cur,i+nums[i]);
+            }
+            if(pre == cur) return false;
         }
-        if(next==end) return true;
-        else return false;
+        return true;
         
     }
 
@@ -37,7 +32,7 @@ int main() {
             for(;i<=pre;i++) {
                 cur = max(cur,i+nums[i]);
             }
-            if(pre==cur)return -1;
+            if(pre==cur)return false;
         }
-        if()
+        return true;
     }
