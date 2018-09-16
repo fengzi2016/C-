@@ -265,3 +265,27 @@ const rob = (nums) => {
     })
     return curMax;
 }
+
+//confict
+(()=>{
+    const f = window.$;
+    window.$ = {
+        noConflict() {
+            window.$ = f;
+            return this;
+        }
+    }
+}) 
+class PriorityQueue {
+    constructor() {
+        this.queue = [];
+    }
+    add(e) {
+        this.queue.push(e);
+    }
+    remove() {
+        let maxn = Math.max(...this.queue);
+        this.queue.splice(this.queue.indexOf(maxn),1);
+        return maxn;
+    }
+}
